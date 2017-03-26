@@ -18,3 +18,4 @@
 sftp-config.json
 /config/*.yml
 /public/backend_template
+/public/my

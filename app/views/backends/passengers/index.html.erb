@@ -1,0 +1,61 @@
+<div class="row">
+  <div class="col-lg-12">
+    <nav class="navbar navbar-inverse" role="navigation">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="fa fa-bars"></span>
+        </button>
+      </div>
+
+      <div class="collapse navbar-collapse navbar-ex1-collapse">
+        <ul class="nav navbar-nav">
+          <li>
+            <a href="#MyModal" data-action="<%= new_backends_passenger_path %>" data-title="NEW" >NEW</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-lg-12">
+    <section class="panel">
+      <header class="panel-heading">
+        <%= params[:type]%>
+      </header>
+      <div class="table-responsive">
+        <table class="table table-bordered table-advance table-hover text-center">
+          <thead>
+            <tr>
+              <th class="text-center col-lg-1 col-md-1">No.</th>
+              <th class="text-center col-lg-2 col-md-2">姓名</th>
+              <th class="text-center col-lg-2 col-md-2">性別</th>
+              <th class="text-center col-lg-2 col-md-2">校系級</th>
+              <th class="text-center col-lg-2 col-md-2">Email</th>
+              <th class="text-center col-lg-2 col-md-2">Facebook</th>
+              <th class="text-center col-lg-1 col-md-1"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @passengers.each do |p| %>
+            <tr>
+              <td><%= p.id %></td>
+              <td><%= p.name %></td>
+              <td><%= p.gender %></td>
+              <td><%= p.major %></td>
+              <td><%= p.email %></td>
+              <td><%= p.facebook %></td>
+              <td><a href="<%= edit_backends_passenger_path(p.id)%>" class="btn btn-block btn-sm btn-warning"><i class="fa fa-pencil"></i> </a> 
+              <%= link_to(backends_passenger_path(id: p.id),class: "btn btn-block btn-sm btn-danger", method: :delete,data:{confirm: "Are You sure?"}) do %><i class="fa fa-trash-o"></i><% end %></td>
+            </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </div>
+</div>
+

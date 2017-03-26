@@ -1,0 +1,25 @@
+<aside>
+	<div id="sidebar"  class="nav-collapse ">
+		<!-- sidebar menu start-->
+		<ul class="sidebar-menu" id="nav-accordion">
+			<li>
+				<a href="<%= backends_passengers_path%>"> <i class="fa fa-user"></i> <span>擺渡乘客名單</span> </a>
+			</li>
+			<li class="sub-menu">
+				<a href="javascript:;"> <i class="fa fa-flag"></i> <span>擺渡人軍火庫</span> </a>
+				<ul class="sub">
+				</ul>
+			</li>
+			<li>
+				<a href="#MyModal" data-action="<%= edit_backends_admin_path(id: current_user.id)%>" data-title="帳號設定"> <i class="fa fa-cog"></i> <span>Account Setting</span> </a>
+			</li>
+			<% if current_user.permission = "root"%>
+				<li>
+					<a href="#MyModal" data-action="<%= edit_backends_system_path(id: 1)%>" data-title="系統設定"> <i class="fa fa-windows"></i> <span>EDIT SYSTEM</span> </a>
+				</li>
+			<%end%>
+
+		</ul>
+		<!-- sidebar menu end-->
+	</div>
+</aside>

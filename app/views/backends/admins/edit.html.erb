@@ -1,12 +1,6 @@
 <%= form_for @admin , :url => {:controller => 'backends/admins', action: :update},:html => {:class => "form-horizontal"} do |b|%>
 <%= token_tag nil %>
 <div class="form-group">
-	<label class="col-lg-3 col-sm-3 control-label">名稱</label>
-	<div class="col-lg-9">
-		<input type="text" class="form-control" name="admin[name]" value="<%= @admin.name %>" />
-	</div>
-</div>
-<div class="form-group">
 	<label class="col-lg-3 col-sm-3 control-label">帳號</label>
 	<div class="col-lg-9">
 		<input type="text" class="form-control" name="admin[account]" value="<%= @admin.account %>" />
@@ -16,6 +10,31 @@
 	<label class="col-lg-3 col-sm-3 control-label">密碼</label>
 	<div class="col-lg-9">
 		<input type="password" class="form-control" name="admin[password]" />
+	</div>
+</div>
+<div class="form-group">
+	<label class="col-lg-3 col-sm-3 control-label">名稱</label>
+	<div class="col-lg-9">
+		<input type="text" class="form-control" name="admin[name]" value="<%= @admin.name %>" />
+	</div>
+</div>
+<div class="form-group">
+	<label class="col-lg-3 col-sm-3 control-label">校系級</label>
+	<div class="col-lg-9">
+		<input type="text" class="form-control" name="admin[major]" value="<%= @admin.major %>" />
+	</div>
+</div>
+
+<div class="form-group">
+	<label class="col-lg-3 col-sm-3 control-label">Email</label>
+	<div class="col-lg-9">
+		<input type="text" class="form-control" name="admin[email]" value="<%= @admin.email %>" />
+	</div>
+</div>
+<div class="form-group">
+	<label class="col-lg-3 col-sm-3 control-label">Facebook Url</label>
+	<div class="col-lg-9">
+		<input type="text" class="form-control" name="admin[fb]" value="<%= @admin.fb %>"/>
 	</div>
 </div>
 <div class="form-group">

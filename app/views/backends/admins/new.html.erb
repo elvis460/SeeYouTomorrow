@@ -1,0 +1,4 @@
+<%= form_for @admin , :url => {:controller => 'backends/admins'}, :html => {:class => "form-horizontal"} do |b|%>
+<%= token_tag nil %>
+<%= render partial: "/backends/admins/form" %>
+<%end%>

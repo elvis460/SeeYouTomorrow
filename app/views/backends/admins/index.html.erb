@@ -1,0 +1,36 @@
+<div class="row">
+  <div class="col-lg-12">
+    <section class="panel">
+      <header class="panel-heading">
+        <%= params[:type]%>
+      </header>
+      <div class="table-responsive">
+        <table class="table table-bordered table-advance table-hover text-center">
+          <thead>
+            <tr>
+              <th class="text-center col-lg-2 col-md-2">姓名</th>
+              <th class="text-center col-lg-2 col-md-2">校系級</th>
+              <th class="text-center col-lg-2 col-md-2">聯絡資訊</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @admins.each do |admin| %>
+            <tr>
+              <td class="text-center col-lg-2 col-md-2"><%= admin.name %></td>
+              <td class="text-center col-lg-2 col-md-2"><%= admin.major %></td>
+              <td class="text-center col-lg-2 col-md-2">
+                <p>
+                  <a href="mailto:<%= admin.email %>" target="_top"><i class="fa fa-envelope-o" style="font-size: 2em;"></i></a>
+                  　   
+                  <a href="<%= admin.fb %>" target="_blank"><i class="fa fa-facebook" style="font-size: 2em;"></i></a>
+                </p>
+              </td>
+            </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </div>
+</div>
+

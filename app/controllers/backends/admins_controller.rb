@@ -4,6 +4,10 @@ class Backends::AdminsController < BackendsController
     render layout: false
   end
 
+  def index
+    @admins = Admin.all
+  end
+
   def edit
     render layout: false
   end
@@ -17,7 +21,7 @@ class Backends::AdminsController < BackendsController
   private
 
   def admin_params_permit
-    params.require(:admin).permit(:name, :account, :password)
+    params.require(:admin).permit(:name, :account, :password, :email, :fb, :major)
   end
 
 end

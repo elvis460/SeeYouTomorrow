@@ -5,11 +5,14 @@
 			<li>
 				<a href="<%= backends_passengers_path%>"> <i class="fa fa-user"></i> <span>擺渡乘客名單</span> </a>
 			</li>
-			<li class="sub-menu">
-				<a href="javascript:;"> <i class="fa fa-flag"></i> <span>擺渡人軍火庫</span> </a>
+			
+			<li>
+				<a href="<%= backends_admins_path%>"> <i class="fa fa-flag"></i> <span>擺渡人軍火庫</span> </a>
+			<!-- <li class="sub-menu">
+				<a href="javascript:;"> <i class="fa fa-flag"></i> <span>下拉</span> </a>
 				<ul class="sub">
 				</ul>
-			</li>
+			</li> -->
 			<li>
 				<a href="#MyModal" data-action="<%= edit_backends_admin_path(id: current_user.id)%>" data-title="帳號設定"> <i class="fa fa-cog"></i> <span>Account Setting</span> </a>
 			</li>

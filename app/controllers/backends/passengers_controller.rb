@@ -28,10 +28,15 @@ class Backends::PassengersController < BackendsController
     redirect_to backends_passengers_path, flash: { success: '修改成功'}
   end
 
+  def destroy
+    @passenger.destroy
+    redirect_to backends_passengers_path, flash: { success: '刪除成功'}
+  end
+
   private
 
   def passenger_params_permit
-    params.require(:passenger).permit(:name, :gender, :major, :email, :facebook)
+    params.require(:passenger).permit(:name, :gender, :major, :email, :facebook, :date, :location)
   end
 
   def find_passenger

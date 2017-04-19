@@ -13,21 +13,37 @@
               <th class="text-center col-lg-2 col-md-2">聯絡資訊</th>
             </tr>
           </thead>
-          <tbody>
-            <% @admins.each do |admin| %>
-            <tr>
-              <td class="text-center col-lg-2 col-md-2"><%= admin.name %></td>
-              <td class="text-center col-lg-2 col-md-2"><%= admin.major %></td>
-              <td class="text-center col-lg-2 col-md-2">
-                <p>
-                  <a href="mailto:<%= admin.email %>" target="_top"><i class="fa fa-envelope-o" style="font-size: 2em;"></i></a>
-                  　   
-                  <a href="<%= admin.fb %>" target="_blank"><i class="fa fa-facebook" style="font-size: 2em;"></i></a>
-                </p>
-              </td>
-            </tr>
-            <% end %>
-          </tbody>
+          <% if current_user.permission == "root"%> 
+            <tbody>
+              <% @admins.each do |admin| %>
+              <tr>
+                <td class="text-center col-lg-2 col-md-2"><%= admin.name %></td>
+                <td class="text-center col-lg-2 col-md-2"><%= admin.major %></td>
+                <td class="text-center col-lg-2 col-md-2">
+                  <p>
+                    <a href="mailto:<%= admin.email %>" target="_top"><i class="fa fa-envelope-o" style="font-size: 2em;"></i></a>
+                    　   
+                    <a href="<%= admin.fb %>" target="_blank"><i class="fa fa-facebook" style="font-size: 2em;"></i></a>
+                  </p>
+                </td>
+              </tr>
+              <% end %>
+            </tbody>
+          <%else%>
+            <tbody>
+              <tr>
+                <td class="text-center col-lg-2 col-md-2"><%= current_user.name %></td>
+                <td class="text-center col-lg-2 col-md-2"><%= current_user.major %></td>
+                <td class="text-center col-lg-2 col-md-2">
+                  <p>
+                    <a href="mailto:<%= current_user.email %>" target="_top"><i class="fa fa-envelope-o" style="font-size: 2em;"></i></a>
+                    　   
+                    <a href="<%= current_user.fb %>" target="_blank"><i class="fa fa-facebook" style="font-size: 2em;"></i></a>
+                  </p>
+                </td>
+              </tr>
+            </tbody>
+          <%end%>
         </table>
       </div>
     </section>

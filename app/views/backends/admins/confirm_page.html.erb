@@ -1,0 +1,55 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>擺渡人系統</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="/backend_template/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/backend_template/css/bootstrap-reset.css" rel="stylesheet">
+    <!--external css-->
+    <link href="/backend_template/assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
+    <!-- Custom styles for this template -->
+    <link href="/backend_template/css/style.css" rel="stylesheet">
+    <link href="/backend_template/css/style-responsive.css" rel="stylesheet" />
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 tooltipss and media queries -->
+    <!--[if lt IE 9]>
+    <script src="js/html5shiv.js"></script>
+    <script src="js/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+
+<body class="lock-screen">
+    <div class="lock-wrapper">
+        <div class="lock-box text-center">
+            <h1 style="font-size: 30px;color: #000">乘客隱私保密條款</h1>
+            <h1 style="color: #000;line-height: 110%">擺渡人應重視所有乘客之個人信息安全，除了提供高品質的服務外，需以誠信精神與乘客往來，不得隨意向任何人透露乘客資訊，故制定本隱私保密條款，希望您確實維護乘客的隱私與資訊安全。
+            </h1>
+            <br>
+            <form class="form-inline" action="<%= confirm_commit_backends_admins_path%>" method="post">
+              <%= token_tag nil %>
+              <div class="form-group col-lg-12">
+                <div class="checkbox" style="font-size: 14px;color: #fff">
+                  <input type="checkbox" id="confirm_checkbox" name="confirm" value="true"> 我已詳閱乘客保密協議
+                </div>
+              </div>
+              <br>
+              <br>
+              <button class="btn btn-lg btn-success btn-block" type="submit" id="confirm_button" disabled="">
+                我同意
+              </button>
+            </form>
+        </div>
+    </div>
+    <script src="/backend_template/js/jquery.js"></script>
+    <script>
+      $('#confirm_checkbox').on('click',function(){
+        $('#confirm_button').prop('disabled', !this.checked);
+      })
+    </script>
+</body>
+</html>

@@ -11,6 +11,8 @@ Rails.application.routes.draw do
     resources :admins do
       collection do
         get :login
+        get :confirm_page
+        post :confirm_commit
       end
     end
     

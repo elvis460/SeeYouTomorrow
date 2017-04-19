@@ -4,6 +4,15 @@ class Backends::AdminsController < BackendsController
     render layout: false
   end
 
+  def confirm_page
+    render layout: false
+  end
+
+  def confirm_commit
+    current_user.update(confirm: params[:confirm])
+    redirect_to backends_path
+  end
+
   def index
     @admins = Admin.all
   end

@@ -4,7 +4,11 @@ class Backends::SessionsController <  BackendsController
     @admin = Admin.find_by(account: params[:account])
     if @admin && @admin.authenticate(params[:password])
       session[:admin_id] = @admin.id
-      redirect_to backends_path ,flash: { success: '登入成功'}
+      if !@admin.confirm
+        redirect_to confirm_page_backends_admins_path
+      else
+        redirect_to backends_path ,flash: { success: '登入成功'}
+      end
     else
       redirect_to :back,flash: { error: '登入失敗'}
     end

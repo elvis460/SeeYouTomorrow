@@ -27,6 +27,7 @@ gem 'bcrypt', '~> 3.1.7'
 
 gem 'mysql2'
 gem 'settingslogic'
+gem 'rails_serve_static_assets', group: [:production]
 
 #file uploader
 gem 'carrierwave'

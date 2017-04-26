@@ -1,3 +1,6 @@
+# 初期規劃：用作乘客擺渡紀錄建檔
+# 後來加入需求：乘客基本資料含tag，由於db中已有passenger資料
+#修正耗時，於是固定此controller為擺渡紀錄，新增PassengerInfo controller為乘客資料
 class Backends::PassengersController < BackendsController
   
   before_action :find_passenger,except: [:index]

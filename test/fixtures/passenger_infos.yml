@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  psgr_no: MyString
+  name: MyString
+  major: MyString
+  email: MyString
+  tag_id: MyText
+
+two:
+  psgr_no: MyString
+  name: MyString
+  major: MyString
+  email: MyString
+  tag_id: MyText

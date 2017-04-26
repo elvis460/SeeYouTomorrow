@@ -1,0 +1,22 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="col-md-12 m-top15 m-bot15">
+      <label for="Location"><span><u>FILE UPLOAD</u></span></label>
+    </div>
+    <div class="col-md-12 m-bot15">
+      <form class="form-horizontal"  action="/backends/systems/import_passenger_excel/" multiple=""  enctype="multipart/form-data" method="post" >
+        <%= token_tag nil%>
+        <div class="bs-example bookimages" data-example-id="basic-forms">
+          <div class="form-group col-md-8">
+            <input type="file"  name="file[]" multiple="" />
+          </div>
+          <div class="form-group col-md-5">
+            <button type="submit" class="btn btn-danger">
+              Upload
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

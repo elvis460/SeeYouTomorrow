@@ -7,7 +7,14 @@ Rails.application.routes.draw do
 
     resource :sessions , only: [:create,:destroy]
     resources :systems,only: %w(edit update)
+    resources :systems do
+      collection do
+        post :import_passenger_excel
+        get :file_upload
+      end
+    end
     resources :passengers
+    resources :passenger_infos
     resources :admins do
       collection do
         get :login

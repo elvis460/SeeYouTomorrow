@@ -1,0 +1,2 @@
+module Backends::PassengerInfosHelper
+end

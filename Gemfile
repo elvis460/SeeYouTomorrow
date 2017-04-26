@@ -29,11 +29,13 @@ gem 'mysql2'
 gem 'settingslogic'
 
 #file uploader
-# gem 'carrierwave'
+gem 'carrierwave'
 # gem "mini_magick"
 # Use Unicorn as the app server
 # gem 'unicorn'
 gem 'awesome_nested_set'
+gem "roo"
+
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

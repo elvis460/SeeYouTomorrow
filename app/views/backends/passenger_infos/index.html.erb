@@ -1,0 +1,41 @@
+<div class="row">
+  <div class="col-lg-12">
+    <section class="panel">
+      <header class="panel-heading">
+      </header>
+      <div class="table-responsive">
+        <table class="table table-bordered table-advance table-hover text-center">
+          <thead>
+            <tr>
+              <th class="text-center col-lg-1 col-md-1">PSGR_NO</th>
+              <th class="text-center col-lg-2 col-md-2">姓名</th>
+              <th class="text-center col-lg-2 col-md-2">校系級</th>
+              <th class="text-center col-lg-1 col-md-1">Email</th>
+              <th class="text-center col-lg-2 col-md-4">Tags</th>
+            </tr>
+          </thead>
+            <tbody>
+              <% @passenger_infos.each do |passenger| %>
+              <tr>
+                <td class="text-center col-lg-1 col-md-1"><%= passenger['psgr_no'] %></td>
+                <td class="text-center col-lg-2 col-md-2"><%= passenger['name'] %></td>
+                <td class="text-center col-lg-2 col-md-2"><%= passenger['major'] %></td>
+                <td class="text-center col-lg-1 col-md-1">
+                  <p>
+                    <a href="mailto:<%= passenger['email'] %>" target="_top"><i class="fa fa-envelope-o" style="font-size: 2em;"></i></a>
+                  </p>
+                </td>
+                <td class="col-lg-4 col-md-4">
+                  <%passenger['tags'].map do |tag| %>
+                    <span class="label label-info"><%=tag%></span>
+                  <%end%>
+                </td>
+              </tr>
+              <% end %>
+            </tbody>
+        </table>
+      </div>
+    </section>
+  </div>
+</div>
+

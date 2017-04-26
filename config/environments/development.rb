@@ -10,15 +10,23 @@ Rails.application.configure do
   config.eager_load = false
   # Mailgun config 
   config.action_mailer.delivery_method = :smtp
-  config.action_mailer.default_url_options = { host: "smtp.mailgun.org" }
   config.action_mailer.smtp_settings = {
-    address:              Settings.Mailgun.host,
+    address:              Settings.Gmail.address,
     port:                 587,
-    domain:               Settings.Mailgun.domain,
-    user_name:            Settings.Mailgun.account,
-    password:             Settings.Mailgun.password,
+    domain:               Settings.Gmail.domain,
+    user_name:            Settings.Gmail.account,
+    password:             Settings.Gmail.password,
     authentication:       'plain',
     enable_starttls_auto: true  }
+    # config.action_mailer.default_url_options = { host: "smtp.mailgun.org" }
+    # config.action_mailer.smtp_settings = {
+    #   address:              Settings.Mailgun.host,
+    #   port:                 587,
+    #   domain:               Settings.Mailgun.domain,
+    #   user_name:            Settings.Mailgun.account,
+    #   password:             Settings.Mailgun.password,
+    #   authentication:       'plain',
+    #   enable_starttls_auto: true  }
 
   # Show full error reports and disable caching.
   config.consider_all_requests_local       = true

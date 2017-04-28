@@ -1,8 +1,9 @@
 class Backends::PassengerInfosController < BackendsController
+  before_action :find_passenger_info , only: [:edit,:update]
   def index
 
     @passenger_infos = PassengerInfo.all.map do |passenger|
-      {psgr_no: passenger.psgr_no, name: passenger.name, major: passenger.major, email: passenger.email,
+      {id: passenger.id, psgr_no: passenger.psgr_no, name: passenger.name, major: passenger.major, email: passenger.email,
        tags: passenger.tag_id.map do |tag|
         Tag.find(tag).content
        end
@@ -14,21 +15,25 @@ class Backends::PassengerInfosController < BackendsController
 
   # TODO: edit tag
   def edit
-    @passenger_info = PassengerIngo.find_by(id: params[:id])
+    @tags = Tag.all.map do |tag|
+      {tag_id: tag.id , tag_content: tag.content}
+    end
+    @tags = JSON.parse(@tags.to_json)
+    @selected_tags = @passenger_info.tag_id
   end
 
   def update
     @passenger_info.update(passenger_info_params_permit)  
-    redirect_to backends_passengerinfos_path , flash: { success: '修改成功'}
+    redirect_to backends_passenger_infos_path , flash: { success: '修改成功'}
   end
 
   private
 
   def passenger_info_params_permit
-    params.require(:passenger).permit(:name, :major, :email, :tag_id)
+    params.require(:passenger_info).permit(:name, :major, :email, :tag_id => [])
   end
 
-  def find_passenger
-
+  def find_passenger_info
+    @passenger_info = PassengerInfo.find_by(id: params[:id])
   end
 end

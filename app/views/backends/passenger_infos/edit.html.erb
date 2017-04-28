@@ -1,0 +1,44 @@
+<%= form_for @passenger_info , :url => {:controller => 'backends/passenger_infos', action: :update},:html => {:class => "form-horizontal"} do |info|%>
+<div class="form-group">
+  <label class="col-lg-3 col-sm-3 control-label">姓名</label>
+  <div class="col-lg-6">
+    <input type="text" class="form-control" name="passenger_info[name]" value="<%= @passenger_info.name %>" />
+  </div>
+</div>
+<div class="form-group">
+  <label class="col-lg-3 col-sm-3 control-label">校系級</label>
+  <div class="col-lg-6">
+    <input type="text" class="form-control" name="passenger_info[major]" value="<%= @passenger_info.major %>" />
+  </div>
+</div>
+<div class="form-group">
+  <label class="col-lg-3 col-sm-3 control-label">Email</label>
+  <div class="col-lg-6">
+    <input type="text" class="form-control" name="passenger_info[email]" value="<%= @passenger_info.email %>" />
+  </div>
+</div>
+<div class="form-group">
+  <label class="col-lg-3 col-sm-3 control-label">Tags</label>
+  <div class="col-lg-6">
+    <select style="width: 100%;"  name="passenger_info[tag_id][]" class="chosen-select form-control" multiple tabindex="-1" >
+      <% @tags.each do |tag|%>
+        <option value="<%=tag['tag_id']%>" <%=contained(@selected_tags,tag['tag_id'])%> > <%=tag['tag_content']%> </option>
+      <%end%>
+    </select>
+  </div>
+</div>
+<div class="form-group">
+  <div class="col-lg-12">
+    <button class="btn btn-block btn-danger">
+      確認
+    </button>
+  </div>
+</div>
+<%end%>
+
+<script>
+  $(document).ready(function() {
+    //editables
+    $(".chosen-select").chosen();
+  });
+</script>

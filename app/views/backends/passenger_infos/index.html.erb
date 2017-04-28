@@ -12,6 +12,7 @@
               <th class="text-center col-lg-2 col-md-2">校系級</th>
               <th class="text-center col-lg-1 col-md-1">Email</th>
               <th class="text-center col-lg-2 col-md-4">Tags</th>
+              <th class="text-center col-lg-1 col-md-1"></th>
             </tr>
           </thead>
             <tbody>
@@ -29,6 +30,9 @@
                   <%passenger['tags'].map do |tag| %>
                     <span class="label label-info"><%=tag%></span>
                   <%end%>
+                </td>
+                <td class="col-lg-1 col-md-1">
+                  <a href="<%= edit_backends_passenger_info_path(passenger['id'])%>" class="btn btn-block btn-sm btn-warning"><i class="fa fa-pencil"></i> </a>
                 </td>
               </tr>
               <% end %>

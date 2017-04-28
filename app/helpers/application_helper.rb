@@ -16,4 +16,11 @@ module ApplicationHelper
       return 'active'
     end
   end
+
+  # for multi-select
+  def contained(a,b)
+    if a.to_s.include? b.to_s
+      return 'selected'
+    end
+  end
 end

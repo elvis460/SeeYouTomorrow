@@ -18,6 +18,10 @@
 			</li>
 			<% if current_user.permission == "root"%>
 				<li>
+					<a href="<%= backends_passenger_infos_path%>"> <i class="fa fa-book"></i>
+ 						<span>擺渡乘客資料</span> </a> 
+				</li>
+				<li>
 					<a href="#MyModal" data-action="<%= edit_backends_system_path(id: 1)%>" data-title="系統設定"> <i class="fa fa-windows"></i> <span>EDIT SYSTEM</span> </a>
 				</li>
 			<%end%>

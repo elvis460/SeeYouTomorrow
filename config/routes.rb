@@ -14,7 +14,11 @@ Rails.application.routes.draw do
       end
     end
     resources :passengers
-    resources :passenger_infos
+    resources :passenger_infos do
+      collection do
+        post :auto_add_tag
+      end
+    end
     resources :admins do
       collection do
         get :login

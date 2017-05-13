@@ -22,7 +22,7 @@
 <div class="form-group">
   <label class="col-md-2 col-lg-2 col-sm-2 control-label">擺渡時間</label>
   <div class="col-md-9 col-lg-9 col-sm-9">
-    <input type="datetime-local" class="form-control" name="passenger[date]" value="<%= @passenger.date %>" />
+    <input type="datetime-local" class="form-control" id="date_time" name="passenger[date]" value="<%= @passenger.date %>" />
   </div>
 </div>
 <div class="form-group">
@@ -50,3 +50,23 @@
     </button>
   </div>
 </div>
+
+<script>
+  $(document).ready(function() {
+    $('input').keyup(function() {
+
+        var empty = false;
+        $('input').each(function() {
+            if ($(this).val().length == 0) {
+                empty = true;
+            }
+        });
+
+        if (empty) {
+            $('.btn-danger').attr('disabled', 'disabled');
+        } else {
+            $('.btn-danger').removeAttr('disabled');
+        }
+    });
+});
+</script>

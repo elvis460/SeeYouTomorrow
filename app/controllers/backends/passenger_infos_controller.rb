@@ -1,5 +1,6 @@
 class Backends::PassengerInfosController < BackendsController
   before_action :find_passenger_info , only: [:edit,:update]
+  skip_before_filter :verify_authenticity_token, only: [:auto_add_tag]
   def index
 
     @passenger_infos = PassengerInfo.all.map do |passenger|
@@ -25,6 +26,12 @@ class Backends::PassengerInfosController < BackendsController
   def update
     @passenger_info.update(passenger_info_params_permit)  
     redirect_to backends_passenger_infos_path , flash: { success: '修改成功'}
+  end
+
+  def auto_add_tag
+    @tag = Tag.create(content: params[:tag_name])
+    render json: @tag
+    return
   end
 
   private

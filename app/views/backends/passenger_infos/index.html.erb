@@ -33,6 +33,11 @@
                 </td>
                 <td class="col-lg-1 col-md-1">
                   <a href="<%= edit_backends_passenger_info_path(passenger['id'])%>" class="btn btn-block btn-sm btn-warning"><i class="fa fa-pencil"></i> </a>
+                  <% if current_user.permission == "root" && !passenger['match_mail_sent']%>
+                    <%= link_to match_page_backends_passenger_infos_path(id: passenger['id']),class: "btn btn-block btn-sm btn-success"  do %><i class="fa fa-envelope-o"></i><% end %>
+                  <%elsif current_user.permission == "root" && passenger['match_mail_sent']%>
+                    <%= link_to match_page_backends_passenger_infos_path(id: passenger['id']),class: "btn btn-block btn-sm btn-danger"  do %><i class="fa fa-envelope-o"></i><% end %>
+                  <%end%>
                 </td>
               </tr>
               <% end %>

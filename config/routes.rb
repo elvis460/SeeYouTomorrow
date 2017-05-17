@@ -17,6 +17,8 @@ Rails.application.routes.draw do
     resources :passenger_infos do
       collection do
         post :auto_add_tag
+        get :match_page
+        post :match_send_mail
       end
     end
     resources :admins do

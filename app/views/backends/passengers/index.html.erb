@@ -51,7 +51,8 @@
               <!-- <td><%= p.email %></td>
               <td><%= p.facebook %></td> -->
               <td><a href="<%= edit_backends_passenger_path(p.id)%>" class="btn btn-block btn-sm btn-warning"><i class="fa fa-pencil"></i> </a> 
-              <%= link_to(backends_passenger_path(id: p.id),class: "btn btn-block btn-sm btn-danger", method: :delete,data:{confirm: "Are You sure?"}) do %><i class="fa fa-trash-o"></i><% end %></td>
+              <%= link_to(backends_passenger_path(id: p.id),class: "btn btn-block btn-sm btn-danger", method: :delete,data:{confirm: "Are You sure?"}) do %><i class="fa fa-trash-o"></i><% end %>
+              </td>
             </tr>
             <% end %>
           </tbody>
